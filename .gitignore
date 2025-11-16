@@ -1,0 +1,104 @@
+# Gitignore para proyecto de IA Psicoeducación
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Modelos (muy grandes para Git)
+models/
+!models/.gitkeep
+*.bin
+*.safetensors
+*.gguf
+*.pth
+*.pt
+*.npz
+
+# Datos de entrenamiento sensibles
+data/training/*.jsonl
+data/validation/*.jsonl
+!data/training/.gitkeep
+!data/validation/.gitkeep
+
+# Logs
+logs/
+*.log
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Outputs temporales
+temp/
+tmp/
+cache/
+
+# Frontend (Node.js)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.eslintcache
+
+# Frontend build
+frontend/dist/
+frontend/build/
+
+# Audio/Video temporales
+*.wav
+*.mp3
+*.ogg
+*.mp4
+!assets/**/*.wav
+!assets/**/*.mp3
+
+# Sistema
+Thumbs.db
+
+# Archivos obsoletos
+_obsolete/

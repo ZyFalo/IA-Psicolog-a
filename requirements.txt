@@ -1,0 +1,61 @@
+# Asistente Psicoeducativo IA - Dependencias
+# Optimizado para Apple Silicon (M1/M2/M3/M4)
+# Python 3.10+
+
+# ============================================
+# CORE: MLX Framework (Apple Silicon)
+# ============================================
+mlx>=0.29.0
+mlx-lm>=0.28.0
+
+# ============================================
+# ML & NLP
+# ============================================
+torch>=2.0.0
+transformers>=4.39.0
+huggingface-hub>=0.20.0
+
+# ============================================
+# Backend API (FastAPI)
+# ============================================
+fastapi>=0.100.0
+uvicorn[standard]>=0.23.0
+python-multipart>=0.0.6
+websockets>=12.0
+
+# ============================================
+# Validación y Config
+# ============================================
+pydantic>=2.0.0
+pydantic-settings>=2.0.0
+python-dotenv>=1.0.0
+pyyaml>=6.0.0
+
+# ============================================
+# Utilities
+# ============================================
+aiofiles>=23.0.0
+
+# ============================================
+# Testing
+# ============================================
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+httpx>=0.24.0
+
+# ============================================
+# OPCIONAL: Fine-tuning (instalar bajo demanda)
+# ============================================
+# Descomentar cuando vayas a hacer fine-tuning:
+# datasets>=2.14.0
+# peft>=0.5.0
+# scipy>=1.11.0
+# accelerate>=0.24.0
+# bitsandbytes>=0.42.0
+
+# ============================================
+# OPCIONAL: Voice (instalar bajo demanda)
+# ============================================
+# Descomentar cuando implementes voz:
+# openai-whisper>=20231117
+# piper-tts>=1.2.0
