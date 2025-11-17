@@ -106,28 +106,55 @@ open frontend/chat.html
 
 ---
 
-## 📦 DEPENDENCIAS INSTALADAS
+## 📦 DEPENDENCIAS
 
-**Archivo**: `backend/requirements-mlx.txt`
+**Archivo**: `requirements.txt` (raíz del proyecto)
 
+**Instalación**:
+```bash
+pip install -r requirements.txt
 ```
+
+**Dependencias Core** (47 paquetes):
+```
+# MLX Framework
 mlx>=0.29.0              # Framework Apple Silicon
 mlx-lm>=0.28.0           # Modelos de lenguaje
+
+# ML/NLP
 torch>=2.0.0             # PyTorch base
 transformers>=4.39.0     # Hugging Face
+huggingface-hub>=0.20.0  # Model hub
+
+# Backend API
 fastapi>=0.100.0         # API REST
-uvicorn[standard]        # Servidor ASGI
-pydantic>=2.0.0          # Validación
+uvicorn[standard]>=0.23.0 # Servidor ASGI
+websockets>=12.0         # WebSocket support
+
+# Validación
+pydantic>=2.0.0          # Data validation
+pydantic-settings>=2.0.0 # Settings management
+
+# Testing
+pytest>=7.4.0            # Test framework
+pytest-asyncio>=0.21.0   # Async tests
+httpx>=0.24.0            # HTTP testing
 ```
 
-**Instaladas exitosamente**:
-- ✅ MLX 0.29.4
-- ✅ torch 2.9.1
-- ✅ transformers 4.57.1
-- ✅ fastapi 0.121.2
-- ✅ accelerate 1.11.0
-- ✅ bitsandbytes 0.42.0
-- ✅ scipy 1.16.3
+**Versiones Instaladas** (probadas):
+- ✅ MLX 0.29.4 + mlx-metal 0.29.4
+- ✅ PyTorch 2.9.1
+- ✅ Transformers 4.57.1
+- ✅ FastAPI 0.121.2
+- ✅ Uvicorn 0.38.0
+- ✅ Pytest 9.0.1
+- ✅ Pydantic 2.12.4
+
+**Dependencias Opcionales** (comentadas en requirements.txt):
+```bash
+# Fine-tuning: datasets, peft, scipy, accelerate, bitsandbytes
+# Voice: openai-whisper, piper-tts
+```
 
 ---
 
@@ -161,6 +188,20 @@ docs/
 ---
 
 ## 🚀 COMANDOS RÁPIDOS
+
+### Instalación Inicial
+```bash
+# Clonar y configurar
+git clone https://github.com/ZyFalo/IA-Psicolog-a.git
+cd IA-Psicolog-a
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+
+# Descargar modelo (una sola vez, ~30 min)
+python -m mlx_lm.convert --hf-path Qwen/Qwen2.5-7B-Instruct \
+    --mlx-path ./models/qwen2.5-7b-mlx -q
+```
 
 ### Probar el modelo
 ```bash
@@ -242,12 +283,18 @@ print(m.get_model_info())
 
 ## 🗂️ ARCHIVOS OBSOLETOS
 
-Movidos a `_obsolete/`:
+Movidos a `_obsolete/` (12 archivos, no en Git):
 - `model_manager.py` - Versión PyTorch (reemplazada por MLX)
 - `download_model.py` - Usaba bitsandbytes incompatible
 - `finetune.py` - LoRA para PyTorch (no MLX)
 - `export_to_ollama.sh` - No necesario
-- Documentación antigua
+- `requirements.txt` (viejo) - Reemplazado por unificado
+- `requirements-minimal.txt` - Redundante
+- `requirements-mlx.txt` - Redundante
+- `.env.example` (viejo) - Actualizado en raíz
+- `setup.sh` - Obsoleto
+- `COMMANDS.sh` - Referencias obsoletas
+- Documentación antigua (README_old.md, etc.)
 
 ---
 
